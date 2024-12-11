@@ -1,8 +1,11 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { getRandomImage } from '../actions';
+
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
 type JokeBody = {
   question: string;
@@ -16,6 +19,7 @@ export default function Joke() {
   });
   const [showAnswer, setShowAnswer] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
+  const [playing, setPlaying] = useState(false);
   const buttonText = showAnswer ? 'Next Question' : 'Show Answer';
 
   const fetchJoke = async () => {
@@ -56,11 +60,23 @@ export default function Joke() {
           if (showAnswer) {
             fetchJoke();
           }
+          if (!playing) {
+            setPlaying(true);
+          }
           setShowAnswer(!showAnswer);
         }}
       >
         {buttonText}
       </button>
+      <div>
+        <ReactPlayer
+          url="https://soundcloud.com/saber-sarlak/chris-rea-driving-home-for-1?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+          playing={playing}
+          loop={true}
+          controls={true}
+          onPause={() => setPlaying(false)}
+        />
+      </div>
     </div>
   );
 }
