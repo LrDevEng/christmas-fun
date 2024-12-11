@@ -39,12 +39,12 @@ export default function Joke() {
       {imgUrl.length > 0 && (
         <div className="relative">
           <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-[800px] text-center">
-            <h1>{joke?.question}</h1>
+            <h2>{joke?.question}</h2>
           </div>
           <Image src={imgUrl} alt="Christmas Image" width={800} height={600} />
           {showAnswer && (
             <div className="absolute bottom-0 py-4 bg-black bg-opacity-60 w-[800px] text-center">
-              <h1>{joke?.answer}</h1>
+              <h2>{joke?.answer}</h2>
             </div>
           )}
         </div>
