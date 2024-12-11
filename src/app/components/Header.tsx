@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header className="w-full flex justify-between bg-red-300">
+    <header className="w-full h-12 flex justify-between bg-red-300">
       <div>Music Player</div>
       <nav>
         <Link href="/">Home</Link>

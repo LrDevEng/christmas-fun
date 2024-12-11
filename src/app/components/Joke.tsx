@@ -35,7 +35,7 @@ export default function Joke() {
   }, [joke]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       {imgUrl.length > 0 && (
         <div className="relative">
           <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-[800px] text-center">
@@ -51,6 +51,7 @@ export default function Joke() {
       )}
 
       <button
+        className="btn my-8"
         onClick={() => {
           if (showAnswer) {
             fetchJoke();
