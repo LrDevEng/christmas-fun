@@ -41,26 +41,24 @@ export default function Joke() {
   return (
     <div className="flex flex-col items-center">
       {imgUrl.length > 0 && (
-        <div className="h-[600px]">
-          <div className="relative max-w-[800px] border-2 border-white">
-            <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-full text-center">
-              <h2>{joke?.question}</h2>
-            </div>
-
-            <Image
-              className="object-contain"
-              src={imgUrl}
-              alt="Christmas Image"
-              width={800}
-              height={600}
-            />
-
-            {showAnswer && (
-              <div className="absolute bottom-0 py-4 bg-black bg-opacity-60 w-full text-center">
-                <h2>{joke?.answer}</h2>
-              </div>
-            )}
+        <div className="relative max-w-[800px] border-2 border-white">
+          <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-full text-center">
+            <h2>{joke?.question}</h2>
           </div>
+
+          <Image
+            className="object-contain"
+            src={imgUrl}
+            alt="Christmas Image"
+            width={800}
+            height={600}
+          />
+
+          {showAnswer && (
+            <div className="absolute bottom-0 py-4 bg-black bg-opacity-60 w-full text-center">
+              <h2>{joke?.answer}</h2>
+            </div>
+          )}
         </div>
       )}
 
