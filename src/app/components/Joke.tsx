@@ -41,21 +41,31 @@ export default function Joke() {
   return (
     <div className="flex flex-col items-center">
       {imgUrl.length > 0 && (
-        <div className="relative">
-          <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-[800px] text-center">
-            <h2>{joke?.question}</h2>
-          </div>
-          <Image src={imgUrl} alt="Christmas Image" width={800} height={600} />
-          {showAnswer && (
-            <div className="absolute bottom-0 py-4 bg-black bg-opacity-60 w-[800px] text-center">
-              <h2>{joke?.answer}</h2>
+        <div className="h-[600px]">
+          <div className="relative max-w-[800px] border-2 border-white">
+            <div className="absolute top-0 py-4 bg-black bg-opacity-60 w-full text-center">
+              <h2>{joke?.question}</h2>
             </div>
-          )}
+
+            <Image
+              className="object-contain"
+              src={imgUrl}
+              alt="Christmas Image"
+              width={800}
+              height={600}
+            />
+
+            {showAnswer && (
+              <div className="absolute bottom-0 py-4 bg-black bg-opacity-60 w-full text-center">
+                <h2>{joke?.answer}</h2>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
       <button
-        className="btn my-8"
+        className="btn my-8 z-40"
         onClick={() => {
           if (showAnswer) {
             fetchJoke();
@@ -68,13 +78,15 @@ export default function Joke() {
       >
         {buttonText}
       </button>
-      <div>
+      <div className="z-40">
         <ReactPlayer
           url="https://soundcloud.com/saber-sarlak/chris-rea-driving-home-for-1?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
           playing={playing}
           loop={true}
           controls={true}
           onPause={() => setPlaying(false)}
+          width={300}
+          height={200}
         />
       </div>
     </div>
