@@ -9,6 +9,6 @@ Visit at: https://christmas-fun.netlify.app/
 # Technologies
 
 - Next.js
-- react-player (Soundcloud)
+- react-player (connected to Soundcloud)
 - Unsplash API
 - ChristmasJoy API
